@@ -1,0 +1,37 @@
+# Heart Disease Risk Predictor
+
+A machine learning app that predicts heart disease risk based on patient health data.
+
+🔗 **Live demo:** [your-streamlit-url-here]
+
+## What it does
+Predicts whether a patient is at risk of heart disease using 13 clinical features 
+(age, cholesterol, blood pressure, etc.) and a trained Random Forest classifier.
+
+## Key finding: data leakage discovery
+The commonly-used 1025-row version of this dataset on Kaggle contains 723 duplicate 
+rows, causing severe data leakage when split into train/test sets (inflating AUC to 
+0.98–1.00). After removing duplicates (down to 302 rows) and re-evaluating, realistic 
+performance was:
+
+| Model | Precision | Recall | F1 | AUC |
+|---|---|---|---|---|
+| Logistic Regression | 0.79 | 0.79 | 0.79 | 0.86 |
+| Gradient Boosting | 0.88 | 0.73 | 0.80 | 0.88 |
+| Random Forest | 0.90 | 0.77 | 0.83 | 0.91 |
+
+Random Forest was selected as the final model based on AUC, though Logistic 
+Regression's higher recall is worth considering given that false negatives 
+(missed at-risk patients) are more costly than false positives in this context.
+
+## Tech stack
+Python, pandas, scikit-learn, Streamlit
+
+## Run locally
+\`\`\`
+pip install -r requirements.txt
+streamlit run app.py
+\`\`\`
+
+## Dataset
+UCI Heart Disease dataset (via Kaggle)
