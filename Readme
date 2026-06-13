@@ -2,7 +2,7 @@
 
 A machine learning app that predicts heart disease risk based on patient health data.
 
-🔗 **Live demo:** [your-streamlit-url-here]
+🔗 **Live demo:** https://heart-disease-predicto.streamlit.app/
 
 ## What it does
 Predicts whether a patient is at risk of heart disease using 13 clinical features 
